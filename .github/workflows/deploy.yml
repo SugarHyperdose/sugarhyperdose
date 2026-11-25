@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: bcomnes/deploy-neocities@v1
+      - uses: jakeboone02/deploy-neocities@v1
         with:
           api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
           dist_dir: .
