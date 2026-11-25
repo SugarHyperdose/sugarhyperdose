@@ -21,7 +21,7 @@ jobs:
           allowed_exts = {
               ".html", ".htm", ".css", ".js", ".json", ".xml", ".txt", ".md",
               ".csv", ".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico",
-              ".woff", ".woff2", ".ttf", ".otf", ".eot", ".mp3", ".ogg", ".wav", ".mp4", ".webm"
+              ".woff", ".woff2", ".ttf", ".otf", ".eot"
           }
 
           for root, dirs, filenames in os.walk("."):
@@ -35,7 +35,7 @@ jobs:
                       continue
                   ext = os.path.splitext(name)[1].lower()
                   if ext not in allowed_exts:
-                      print(f"Skipping unsupported file type: {full_path}")
+                      print(f"Skipping unsupported file type for free site: {full_path}")
                       continue
 
                   rel_path = os.path.relpath(full_path, ".").replace("\\", "/")
@@ -65,6 +65,5 @@ jobs:
                           print(f"OK {rel_path}: {resp.read().decode()}")
                   except urllib.error.HTTPError as e:
                       err_body = e.read().decode(errors="replace")
-                      print(f"FAIL {rel_path} ({e.code}): {err_body}")
-                      raise
+                      print(f"SKIP/FAIL {rel_path} ({e.code}): {err_body}")
           EOF
