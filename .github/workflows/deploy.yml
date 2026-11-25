@@ -8,7 +8,47 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jakeboone02/deploy-neocities@v1
-        with:
-          api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
-          dist_dir: .
+      - name: Upload site to Neocities
+        env:
+          NEOCITIES_API_TOKEN: ${{ secrets.NEOCITIES_API_TOKEN }}
+        run: |
+          python3 - <<'EOF'
+          import os, urllib.request, uuid
+
+          token = os.environ["NEOCITIES_API_TOKEN"]
+          skip_dirs = {".git", ".github"}
+          skip_files = {".gitignore", ".gitattributes"}
+
+          files = []
+          for root, dirs, filenames in os.walk("."):
+              dirs[:] = [d for d in dirs if d not in skip_dirs]
+              for name in filenames:
+                  if name in skip_files:
+                      continue
+                  full_path = os.path.join(root, name)
+                  rel_path = os.path.relpath(full_path, ".").replace("\\", "/")
+                  files.append((rel_path, full_path))
+
+          boundary = uuid.uuid4().hex.encode()
+          body = bytearray()
+          for rel_path, full_path in files:
+              with open(full_path, "rb") as f:
+                  data = f.read()
+              body += b"--" + boundary + b"\r\n"
+              body += f'Content-Disposition: form-data; name="{rel_path}"; filename="{rel_path}"\r\n'.encode()
+              body += b"Content-Type: application/octet-stream\r\n\r\n"
+              body += data + b"\r\n"
+          body += b"--" + boundary + b"--\r\n"
+
+          req = urllib.request.Request(
+              "https://neocities.org/api/upload",
+              data=bytes(body),
+              headers={
+                  "Authorization": f"Bearer {token}",
+                  "Content-Type": f"multipart/form-data; boundary={boundary.decode()}",
+              },
+              method="POST",
+          )
+          with urllib.request.urlopen(req) as resp:
+              print(resp.read().decode())
+          EOF
