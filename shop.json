@@ -1,0 +1,183 @@
+[
+    
+  {
+    "id": "sugar-button",
+    "name": "sugar Button",
+    "category": "buttons",
+    "table": "A1",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/sugar.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "pomni-button",
+    "name": "Pomni Button",
+    "category": "buttons",
+    "table": "A2",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/pomni.png",
+    "desc": "button pin!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "kaufmo-button",
+    "name": "Kaufmo Button",
+    "category": "buttons",
+    "table": "A3",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/kaufmo.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "fizzarolli-button",
+    "name": "Fizzarolli Button",
+    "category": "buttons",
+    "table": "A4",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/fizzarolli.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "miku-button",
+    "name": "Hatsune Miku (Static) Button",
+    "category": "buttons",
+    "table": "A5",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/miku.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "harley-button",
+    "name": "Harley Quinn Button",
+    "category": "buttons",
+    "table": "A6",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/harley.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "jevil-button",
+    "name": "Jevil Button",
+    "category": "buttons",
+    "table": "B1",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/jevil.png",
+    "desc": "Chaos on a pin!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "marx-button",
+    "name": "Marx Button",
+    "category": "buttons",
+    "table": "B2",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/marx.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "dimentio-button",
+    "name": "Dimentio Button",
+    "category": "buttons",
+    "table": "B3",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/dimentio.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "blacephalon-button",
+    "name": "Blacephalon Button",
+    "category": "buttons",
+    "table": "B4",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/blacephalon.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "king-dice-button",
+    "name": "King Dice Button",
+    "category": "buttons",
+    "table": "B5",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/king-dice.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "tricky-button",
+    "name": "Tricky Button",
+    "category": "buttons",
+    "table": "B6",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/tricky.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "pietro-button",
+    "name": "Pietro Button",
+    "category": "buttons",
+    "table": "C1",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/pietro.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "stitches-button",
+    "name": "Stitches Button",
+    "category": "buttons",
+    "table": "C2",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/stitches.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "puppet-button",
+    "name": "Puppet Button",
+    "category": "buttons",
+    "table": "C3",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/puppet.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "laughing-jack-button",
+    "name": "Laughing Jack Button",
+    "category": "buttons",
+    "table": "C4",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/laughing-jack.png",
+    "desc": "wip!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "spinel-current-button",
+    "name": "Spinel (Current) Button",
+    "category": "buttons",
+    "table": "C5",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/spinel-current.png",
+    "desc": "Glossy button pin!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "spinel-original-button",
+    "name": "Spinel (Original) Button",
+    "category": "buttons",
+    "table": "C6",
+    "price": "$4",
+    "img": "/assets/images/product-preview/buttons/spinel-original.png",
+    "desc": "Glossy button pin!",
+    "url": "https://ko-fi.com/sugarhyperdose/shop"
+  }
+]

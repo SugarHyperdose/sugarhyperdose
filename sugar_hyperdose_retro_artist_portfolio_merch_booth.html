@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SugarHyperdose</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body class="flex justify-center">
+  <div id="web-container" class="flex justify-center align-center">
+    <div id="web-container-content" class="container-content">
+      <marquee>★ NEW WEBSITE YIPPEEEE!!! ★</marquee>
+      <nav class="flex">
+        <a href="#home" data-tab="home" class="active-tab">HOME</a>
+        <a href="#art" data-tab="art">ART</a>
+        <a href="#diary" data-tab="diary">DIARY</a>
+        <a href="#shop" data-tab="shop">SHOP</a>
+      </nav>
+
+      <div id="scroll-area">
+
+        <!-- ==================== HOME SECTION ==================== -->
+        <section id="home" class="page-section active">
+          <div class="event-ticket">
+            <img class="ticket-img" src="" alt="Event preview">
+            <div class="ticket-body">
+              <div class="ticket-header">
+                <span class="ticket-badge">★ NEXT EVENT ★</span>
+                <span class="ticket-date">WIP MM DD</span>
+              </div>
+              <div class="ticket-title">WIP</div>
+              <p class="ticket-desc">WIP</p>
+            </div>
+            <a href="#" class="ticket-stub">
+              <span>ADMIT<br>ONE</span>
+              <span class="ticket-cta">JOIN →</span>
+            </a>
+          </div>
+          <div id="threeway" class="container-content">
+            <!-- LEFT COLUMN (Unchanged) -->
+            <div style="position: relative; flex: 1; height: fit-content;" class="flex column align-center">
+              <img src="/assets/images/not-mine/stamps/ballpit.gif"
+                style="position: absolute; left: 10px; top: 0; height: 40px;">
+              <img src="/assets/images/not-mine/stamps/clowncore.png"
+                style="position: absolute; left: 8px; top: 50px; height: 40px;">
+              <img src="/assets/images/not-mine/stamps/clowncore2.png"
+                style="position: absolute; left: 8px; top: 100px; height: 40px;">
+              <img src="/assets/images/not-mine/stamps/gummyworms.png"
+                style="position: absolute; left: 85px; top: 0; height: 40px;">
+              <img src="/assets/images/art/2026-11-08_sugar.png" width="180" style="z-index: 1; margin-left: 40px;">
+              <img src="/assets/images/not-mine/buttons/freewareguide.gif"
+                style="z-index: 2; position: absolute; right: 15px; bottom: 110px; height: 25px;">
+              <img
+                src="/assets/images/not-mine/stamps/twinbee_rainbow_bell_adventure_logo_japan__by_ringostarr39_d6t1rvk-414w-2x.png"
+                style="z-index: 2; position: absolute; right: 0; bottom: -36px; height: 100px;">
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="flex column align-center" style="flex: 2; padding-right: 7px;">
+              <img src="/assets/images/art/2026-11-19_sugarhyperdose-sweet-party.png" style="margin: -20px 0;">
+              <blockquote style="max-width: 400px;">
+                <h3 style="text-align: justify;">
+                  <span style="color: #ff0077; font-size: 2rem;">“</span>My guiding philosophy is <span
+                    class="rainbow-text">hope!</span> I became a local ambassador and volunteer to connect with others
+                  facing
+                  their own struggles, ensuring that nobody else has to feel like they are fighting in the dark
+                  alone!<span style="color: #00f0ff; font-size: 2rem;">”</span>
+                </h3>
+              </blockquote>
+
+              <div class="flex">
+                <ul class="mini-list">
+                  <li>
+                    <img class="thumb" src="/assets/images/not-mine/picmix.com_2781239.gif" alt="">
+                    <span><strong>craving:</strong> ice cream</span>
+                  </li>
+                  <li>
+                    <img class="thumb" src="/assets/images/not-mine/picmix.com_2671306.gif" alt="">
+                    <span><strong>listening to:</strong> nerdcore</span>
+                  </li>
+                  <li>
+                    <img class="thumb" src="/assets/images/not-mine/picmix.com_2747896.gif" alt="">
+                    <span><strong>reading:</strong> the bean trees</span>
+                  </li>
+                  <li>
+                    <img class="thumb" src="/assets/images/not-mine/picmix.com_2428074.gif" alt="">
+                    <span><strong>watching:</strong> h2o delirious</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- 2. GREEN, BLUE & YELLOW "NEWEST" BOXES (Under mini-list) -->
+              <!-- 2. GREEN, BLUE & YELLOW "NEWEST" BOXES (Under mini-list) -->
+              <div class="newest-grid">
+                <a href="#art" id="newest-art-card" class="update-card box-yellow">
+                  <span class="card-tag">ART</span>
+                  <img id="newest-art-img" src="" alt=""
+                    style="width: 80px;
+  height: 80px; object-fit: cover; align-self: center;">
+                  <div id="newest-art-title" class="card-title" style="font-size: 12px; margin-top: 4px;"></div>
+                </a>
+
+                <a href="#shop" class="update-card box-blue">
+                  <span class="card-tag">SHOP</span>
+                  <img src="" alt=""
+                    style="width: 90px; height: 90px; object-fit: cover; align-self: center;">
+                </a>
+
+                <a href="#diary" id="newest-diary-card" class="update-card box-green">
+                  <span class="card-tag">DIARY</span>
+                  <div id="newest-diary-title" class="card-title">Entry Title</div>
+                  <p id="newest-diary-desc" class="card-desc">Entry description.</p>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== ART SECTION ==================== -->
+        <section id="art" class="page-section">
+          <div class="art-grid" id="art-grid"></div>
+        </section>
+
+        <!-- ==================== DIARY SECTION ==================== -->
+        <section id="diary" class="page-section">
+          <div class="diary-board" id="diary-board"></div>
+        </section>
+
+        <!-- ==================== SHOP SECTION ==================== -->
+        <section id="shop" class="page-section">
+          <h1>SHOP</h1>
+          <p style="text-align: center;">Merch! Pick a category on the side!</p>
+
+          <div class="shop-layout">
+            <aside class="shop-sidebar" aria-label="Product categories">
+              <button type="button" class="shop-cat-btn active" data-category="all">ALL ITEMS</button>
+              <button type="button" class="shop-cat-btn" data-category="buttons">BUTTONS</button>
+            </aside>
+
+            <div class="shop-grid" id="shop-grid"></div>
+          </div>
+        </section>
+        
+      </div> <!-- end of #scroll-area -->
+
+      <!-- ==================== DOCKED RAINBOW MUSIC PLAYER ==================== -->
+      <div id="music-player" class="music-player">
+        <!-- Pop-up Tracklist Drawer -->
+        <div id="mp-drawer" class="mp-drawer">
+          <div class="mp-drawer-header">
+            <span>★ JUKEBOX TRACKLIST ★</span>
+            <button id="mp-close-list" type="button">✕</button>
+          </div>
+          <ul id="mp-tracklist" class="mp-tracklist"></ul>
+        </div>
+
+        <!-- Main Player Bar -->
+        <div class="mp-bar">
+          <div class="mp-controls">
+            <button id="mp-prev" type="button" title="Previous">⏮</button>
+            <button id="mp-play" type="button" title="Play/Pause">▶</button>
+            <button id="mp-next" type="button" title="Next">⏭</button>
+          </div>
+
+          <div class="mp-center">
+            <div class="mp-meta">
+              <span id="mp-title" class="mp-title">loading track...</span>
+              <span id="mp-time" class="mp-time">0:00 / 0:00</span>
+            </div>
+            <input id="mp-seek" class="mp-seek" type="range" min="0" max="100" value="0">
+          </div>
+
+          <button id="mp-list-btn" class="mp-list-btn" type="button" title="Tracklist">♪ LIST</button>
+        </div>
+
+        <audio id="mp-audio" preload="metadata"></audio>
+      </div>
+      <!-- ==================== END MUSIC PLAYER ==================== -->
+
+    </div> <!-- end of #web-container-content -->
+    </div>
+  </div>
+
+  
+  <!-- FULLSCREEN LIGHTBOX MODAL -->
+  <div id="art-lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-box">
+      <button id="lb-close" class="lb-close" title="Close">✕</button>
+      <div class="lb-stage">
+        <button id="lb-prev" class="lb-arrow" title="Previous">◀</button>
+        <img id="lb-img" src="" alt="">
+        <button id="lb-next" class="lb-arrow" title="Next">▶</button>
+      </div>
+      <div class="lb-info">
+        <div class="lb-top">
+          <span id="lb-title">Title</span>
+          <span id="lb-date">Date</span>
+        </div>
+        <p id="lb-desc"></p>
+        <p id="lb-music" class="lb-music"></p>
+        <div id="lb-kofi" class="lb-kofi" hidden>
+          <span>★ WATERMARKED ON SITE — UNWATERMARKED VERSION IN THE $1 CLOWN TIER!</span>
+          <a href="https://ko-fi.com/sugarhyperdose" target="_blank" rel="noopener noreferrer">KO-FI →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIARY READER MODAL -->
+  <div id="diary-modal" class="lightbox" aria-hidden="true">
+    <div class="diary-reader-box">
+      <button id="dm-close" class="lb-close" title="Close">✕</button>
+      <div class="dm-header">
+        <span id="dm-tag" class="stub-tag">★ UPDATE</span>
+        <span id="dm-date">nov 22, 2026</span>
+      </div>
+      <h2 id="dm-title">Entry Title</h2>
+      <div id="dm-body" class="dm-body"></div>
+    </div>
+  </div>
+  
+ <script>
+    const sections = document.querySelectorAll('.page-section');
+    const navLinks = document.querySelectorAll('nav a[data-tab]');
+    const scrollArea = document.getElementById('scroll-area');
+
+    function showSection(id) {
+      // Default to 'home' if hash is empty or doesn't match a section
+      const targetId = document.getElementById(id) ? id : 'home';
+
+      sections.forEach(sec => {
+        sec.classList.toggle('active', sec.id === targetId);
+      });
+
+      navLinks.forEach(link => {
+        link.classList.toggle('active-tab', link.dataset.tab === targetId);
+      });
+
+      // Scroll back to the top of the box when switching tabs
+      scrollArea.scrollTop = 0;
+    }
+
+    // Run when the URL hash changes (clicking links or browser Back/Forward)
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      showSection(hash);
+    });
+
+    // Run immediately on page load so direct #art links work
+    window.addEventListener('DOMContentLoaded', () => {
+      const initialHash = window.location.hash.replace('#', '');
+      showSection(initialHash);
+    });
+
+    // ==================== ART JSON + AUTO-FILENAME PARSER + LIGHTBOX ====================
+    const artGrid = document.getElementById('art-grid');
+    const lightbox = document.getElementById('art-lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbTitle = document.getElementById('lb-title');
+    const lbDate = document.getElementById('lb-date');
+    const lbDesc = document.getElementById('lb-desc');
+    const lbMusic = document.getElementById('lb-music');
+
+    let artData = [];
+    let currentIndex = 0;
+
+    // Parses "2026-11-17_sugar-2.png" -> { title: "sugar #2", date: "nov 17, 2026" }
+    function parseFilename(filename) {
+      const clean = filename.replace(/\.[^/.]+$/, ''); // strip extension
+      const [rawDate, rawName] = clean.split('_');
+      const months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+
+      let formattedDate = '';
+      if (rawDate && /^\d{4}-\d{2}-\d{2}$/.test(rawDate)) {
+        const [y, m, d] = rawDate.split('-');
+        formattedDate = `${months[parseInt(m, 10) - 1]} ${d}, ${y}`;
+      }
+
+      let formattedTitle = (rawName || clean)
+        .replace(/-(\d+)$/, ' #$1') // turns "-2" into " #2"
+        .replace(/-/g, ' ');         // turns remaining "-" into spaces
+
+      return { title: formattedTitle, date: formattedDate };
+    }
+
+    function updateNewestArtCard() {
+      const newestArtImg = document.getElementById('newest-art-img');
+      const newestArtTitle = document.getElementById('newest-art-title');
+      if (!newestArtImg || !artData.length) return;
+
+      const latest = artData[0];
+      const parsed = parseFilename(latest.file);
+      const title = latest.title || parsed.title;
+
+      newestArtImg.src = `/assets/images/art/${latest.file}`;
+      newestArtImg.alt = title;
+      if (newestArtTitle) newestArtTitle.textContent = title;
+    }
+
+   const lbKofi = document.getElementById('lb-kofi');
+
+    function openLightbox(index) {
+      if (!artData.length) return;
+      currentIndex = (index + artData.length) % artData.length;
+      const item = artData[currentIndex];
+      const parsed = parseFilename(item.file);
+
+      lbImg.src = `/assets/images/art/${item.file}`;
+      lbTitle.textContent = item.title || parsed.title;
+      lbDate.textContent = item.date || parsed.date;
+      lbDesc.textContent = item.desc || '';
+      lbMusic.textContent = item.music ? `♪ listening to: ${item.music}` : '';
+
+      if (lbKofi) {
+        lbKofi.hidden = !item.kofi;
+      }
+
+      lightbox.classList.add('open');
+    }
+    
+    function renderArtGrid() {
+      artGrid.innerHTML = '';
+      updateNewestArtCard();
+
+      artData.forEach((item, idx) => {
+        const parsed = parseFilename(item.file);
+        const title = item.title || parsed.title;
+
+        const card = document.createElement('div');
+        card.className = 'art-item';
+
+        const img = document.createElement('img');
+        img.src = `/assets/images/art/${item.file}`;
+        img.alt = title;
+
+        const span = document.createElement('span');
+        span.className = 'art-label';
+        span.textContent = title;
+
+        card.appendChild(img);
+        card.appendChild(span);
+        card.addEventListener('click', () => openLightbox(idx));
+        artGrid.appendChild(card);
+      });
+    }
+
+    fetch('art.json')
+      .then(res => res.json())
+      .then(data => {
+        artData = Array.isArray(data) ? data : [];
+        renderArtGrid();
+      })
+      .catch(err => console.error('Failed to load art.json:', err));
+
+    document.getElementById('lb-prev').addEventListener('click', () => openLightbox(currentIndex - 1));
+    document.getElementById('lb-next').addEventListener('click', () => openLightbox(currentIndex + 1));
+    document.getElementById('lb-close').addEventListener('click', () => lightbox.classList.remove('open'));
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.classList.remove('open');
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') lightbox.classList.remove('open');
+      if (e.key === 'ArrowLeft') openLightbox(currentIndex - 1);
+      if (e.key === 'ArrowRight') openLightbox(currentIndex + 1);
+    });
+
+    // ==================== RAINBOW JUKEBOX PLAYER ====================
+    const tracks = [
+      { title: "Attack of the Killer Queen", src: "/assets/audio/music/Attack of the Killer Queen.mp3" },
+      { title: "Circus", src: "/assets/audio/music/Circus.mp3" },
+      { title: "DOGWALK", src: "/assets/audio/music/DOGWALK.mp3" },
+      { title: "Evil Clown Music", src: "/assets/audio/music/Evil Clown Music.mp3" },
+      { title: "The Ringleader (Fizzarolli's Show)", src: "/assets/audio/music/The Ringleader (Fizzarolli's Show).mp3" },
+      { title: "glitter ✩‧₊˚", src: "/assets/audio/music/glitter ✩‧₊˚.mp3" },
+      { title: "Go Kitty Go !", src: "/assets/audio/music/Go Kitty Go !.mp3" },
+      { title: "INTERNET ANGEL", src: "/assets/audio/music/INTERNET ANGEL.mp3" },
+      { title: "JACKIE'S BOX", src: "/assets/audio/music/JACKIE'S BOX.mp3" },
+      { title: "jax toy but its an actual (clean) song", src: "/assets/audio/music/jax toy but its an actual (clean) song.mp3" },
+      { title: "Let's Go Gambling!", src: "/assets/audio/music/Let's Go Gambling!.mp3" },
+      { title: "Paparazzi Murder Party", src: "/assets/audio/music/Paparazzi Murder Party.mp3" },
+      { title: "Peanut or Done？", src: "/assets/audio/music/Peanut or Done？.mp3" },
+      { title: "Static ft. Hatsune Miku", src: "/assets/audio/music/Static ft. Hatsune Miku.mp3" },
+      { title: "Still My Call, Fools", src: "/assets/audio/music/Still My Call, Fools.mp3" },
+      { title: "you are an idiot!", src: "/assets/audio/music/you are an idiot!.mp3" },
+    ];
+
+    const audio = document.getElementById('mp-audio');
+    const playBtn = document.getElementById('mp-play');
+    const prevBtn = document.getElementById('mp-prev');
+    const nextBtn = document.getElementById('mp-next');
+    const titleEl = document.getElementById('mp-title');
+    const timeEl = document.getElementById('mp-time');
+    const seekEl = document.getElementById('mp-seek');
+    const drawerEl = document.getElementById('mp-drawer');
+    const listBtn = document.getElementById('mp-list-btn');
+    const closeListBtn = document.getElementById('mp-close-list');
+    const tracklistEl = document.getElementById('mp-tracklist');
+
+    let trackIndex = 0;
+    let isSeeking = false;
+
+    function formatTrackLabel(track, index) {
+      const cleanTitle = (track.title || '').replace(/^\d+\.\s*/, '');
+      return `${index + 1}. ${cleanTitle}`;
+    }
+
+    function formatTime(sec) {
+      if (!isFinite(sec)) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function renderTracklist() {
+      tracklistEl.innerHTML = '';
+      tracks.forEach((t, i) => {
+        const li = document.createElement('li');
+        li.className = i === trackIndex ? 'playing' : '';
+        const label = formatTrackLabel(t, i);
+        li.innerHTML = `<span>${i === trackIndex ? '▶ ' : ''}${label}</span>`;
+        li.addEventListener('click', () => {
+          loadTrack(i, true);
+          drawerEl.classList.remove('open');
+          listBtn.classList.remove('active');
+        });
+        tracklistEl.appendChild(li);
+      });
+    }
+
+    function loadTrack(index, autoplay = false) {
+      if (!tracks.length) return;
+      trackIndex = (index + tracks.length) % tracks.length;
+      audio.src = tracks[trackIndex].src;
+      titleEl.textContent = formatTrackLabel(tracks[trackIndex], trackIndex);
+      seekEl.value = 0;
+      timeEl.textContent = '0:00 / 0:00';
+      renderTracklist();
+
+      if (autoplay) {
+        audio.play().then(() => {
+          playBtn.textContent = '⏸';
+        }).catch(() => {
+          playBtn.textContent = '▶';
+        });
+      }
+    }
+
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '⏸';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+      }
+    });
+
+    prevBtn.addEventListener('click', () => loadTrack(trackIndex - 1, !audio.paused));
+    nextBtn.addEventListener('click', () => loadTrack(trackIndex + 1, !audio.paused));
+
+    audio.addEventListener('ended', () => loadTrack(trackIndex + 1, true));
+
+    audio.addEventListener('timeupdate', () => {
+      if (!isSeeking && audio.duration) {
+        seekEl.value = (audio.currentTime / audio.duration) * 100;
+      }
+      timeEl.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      timeEl.textContent = `0:00 / ${formatTime(audio.duration)}`;
+    });
+
+    seekEl.addEventListener('input', () => { isSeeking = true; });
+    seekEl.addEventListener('change', () => {
+      if (audio.duration) {
+        audio.currentTime = (seekEl.value / 100) * audio.duration;
+      }
+      isSeeking = false;
+    });
+
+    listBtn.addEventListener('click', () => {
+      drawerEl.classList.toggle('open');
+      listBtn.classList.toggle('active');
+    });
+
+    closeListBtn.addEventListener('click', () => {
+      drawerEl.classList.remove('open');
+      listBtn.classList.remove('active');
+    });
+
+    loadTrack(0, false);
+
+    // ==================== DIARY JSON + TICKET STUB READER ====================
+    const diaryBoard = document.getElementById('diary-board');
+    const diaryModal = document.getElementById('diary-modal');
+    const dmTag = document.getElementById('dm-tag');
+    const dmDate = document.getElementById('dm-date');
+    const dmTitle = document.getElementById('dm-title');
+    const dmBody = document.getElementById('dm-body');
+
+    const diaryTagLabels = {
+      update: '★ UPDATE',
+      ramble: '✎ RAMBLE',
+      vent: '⚡ VENT',
+      latenight: '☾ 3AM THOUGHTS'
+    };
+
+    function updateNewestDiaryCard(entries) {
+      const newestDiaryTitle = document.getElementById('newest-diary-title');
+      const newestDiaryDesc = document.getElementById('newest-diary-desc');
+      if (!newestDiaryTitle || !newestDiaryDesc || !entries.length) return;
+
+      const latest = entries[0];
+      const firstPara = Array.isArray(latest.body) ? (latest.body[0] || '') : (latest.body || '');
+      const previewText = latest.preview || (firstPara.length > 70 ? firstPara.slice(0, 70).trim() + '...' : firstPara);
+
+      newestDiaryTitle.textContent = latest.title || '';
+      newestDiaryDesc.textContent = previewText;
+    }
+
+    function openDiaryModal(entry) {
+      const type = entry.type || 'ramble';
+      dmTag.textContent = entry.tag || diaryTagLabels[type] || '★ ENTRY';
+      dmDate.textContent = entry.date || '';
+      dmTitle.textContent = entry.title || '';
+
+      dmBody.innerHTML = '';
+      const paragraphs = Array.isArray(entry.body) ? entry.body : [entry.body || ''];
+      paragraphs.forEach(text => {
+        const p = document.createElement('p');
+        p.textContent = text;
+        dmBody.appendChild(p);
+      });
+
+      diaryModal.classList.add('open');
+    }
+
+    function renderDiaryBoard(entries) {
+      diaryBoard.innerHTML = '';
+      updateNewestDiaryCard(entries);
+
+      entries.forEach((entry, idx) => {
+        const type = entry.type || 'ramble';
+        const tagText = entry.tag || diaryTagLabels[type] || '★ ENTRY';
+        const numText = entry.num || `NO. ${String(entries.length - idx).padStart(3, '0')}`;
+
+        const firstPara = Array.isArray(entry.body) ? (entry.body[0] || '') : (entry.body || '');
+        const previewText = entry.preview || (firstPara.length > 85 ? firstPara.slice(0, 85).trim() + '...' : firstPara);
+
+        const stub = document.createElement('article');
+        stub.className = 'diary-stub';
+        stub.dataset.type = type;
+
+        stub.innerHTML = `
+          <div class="stub-top">
+            <span class="stub-tag">${tagText}</span>
+            <span class="stub-num">${numText}</span>
+          </div>
+          <div class="stub-title">${entry.title || ''}</div>
+          <div class="stub-date">${entry.date || ''}</div>
+          <p class="stub-preview">${previewText}</p>
+          <div class="stub-footer">
+            <span>ADMIT ONE</span>
+            <span class="stub-open">READ →</span>
+          </div>
+        `;
+
+        stub.addEventListener('click', () => openDiaryModal(entry));
+        diaryBoard.appendChild(stub);
+      });
+    }
+
+    fetch('diary.json')
+      .then(res => res.json())
+      .then(data => {
+        const entries = Array.isArray(data) ? data : [];
+        renderDiaryBoard(entries);
+      })
+      .catch(err => console.error('Failed to load diary.json:', err));
+
+    document.getElementById('dm-close').addEventListener('click', () => {
+      diaryModal.classList.remove('open');
+    });
+
+    diaryModal.addEventListener('click', (e) => {
+      if (e.target === diaryModal) diaryModal.classList.remove('open');
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && diaryModal.classList.contains('open')) {
+        diaryModal.classList.remove('open');
+      }
+    });
+
+    // ==================== SHOP JSON + SIDEBAR CATEGORY TABS ====================
+    // ==================== SHOP JSON + SIDEBAR CATEGORY TABS ====================
+    const shopGrid = document.getElementById('shop-grid');
+    const shopCatButtons = document.querySelectorAll('.shop-cat-btn');
+
+    let shopData = [];
+    let activeShopCategory = 'all';
+
+    function renderShopGrid() {
+      if (!shopGrid) return;
+      shopGrid.innerHTML = '';
+
+      const filtered = activeShopCategory === 'all'
+        ? shopData
+        : shopData.filter(item => item.category === activeShopCategory);
+
+      if (!filtered.length) {
+        shopGrid.innerHTML = `<p class="shop-empty">nothing in this bin yet. Check back soon! ★</p>`;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'shop-card';
+
+        const tableCode = (item.table || '').trim().toUpperCase();
+        const badgeHtml = tableCode
+          ? `<span class="shop-table-badge" title="Artist Alley Table ${tableCode}">${tableCode}</span>`
+          : '';
+
+        card.innerHTML = `
+          <div class="shop-img-wrap">
+            ${badgeHtml}
+            <img class="shop-img" src="${item.img}" alt="${item.name}">
+          </div>
+          <div class="shop-title">${item.name}</div>
+          <div class="shop-price">${item.price || ''}</div>
+          ${item.desc ? `<p class="shop-desc">${item.desc}</p>` : ''}
+          <a class="shop-btn" href="${item.url || 'https://ko-fi.com/sugarhyperdose/shop'}" target="_blank" rel="noopener noreferrer">GET IT →</a>
+        `;
+
+        shopGrid.appendChild(card);
+      });
+    }
+
+    shopCatButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeShopCategory = btn.dataset.category;
+        shopCatButtons.forEach(b => b.classList.toggle('active', b === btn));
+        renderShopGrid();
+      });
+    });
+
+    fetch('shop.json')
+      .then(res => (res.ok ? res.json() : []))
+      .then(data => {
+        shopData = Array.isArray(data) ? data : [];
+        renderShopGrid();
+      })
+      .catch(err => {
+        console.error('Failed to load shop.json:', err);
+        renderShopGrid();
+      });
+  </script>
+</body>
+
+</html>
