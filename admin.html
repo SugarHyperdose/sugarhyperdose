@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PWUC</title>
+    <meta name="description" content="I’m obsessed with sweets to a probably-unhealthy degree!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="assets/graphics/favicons/X.gif" type="image/x-icon">
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        .admin-input,
+        .admin-textarea,
+        .admin-select {
+            width: 100%;
+            font-family: inherit;
+            margin-top: 4px;
+            margin-bottom: 12px;
+            padding: 8px;
+            border: 2px inset var(--purple);
+            color: inherit;
+            background: rgba(255, 255, 255, 0.92);
+            box-sizing: border-box;
+        }
+
+        .admin-textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 7px 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .tab-btn.active {
+            background: var(--purple);
+            color: #fff;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .art-preview-wrap {
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .art-preview-img {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            border: 2px inset var(--purple);
+            display: none;
+            margin: 6px auto 0;
+        }
+    </style>
+</head>
+
+<body class="flex justify-center">
+    <div id="web-container" class="flex justify-center align-center">
+        <div id="web-container-content" class="container-content">
+            <div id="scroll-area">
+
+                <!-- Main Admin Window -->
+                <div id="admin-console" class="admin-window window">
+                    <div class="admin-tabs flex" style="margin-bottom: 12px; gap: 5px; padding: 6px;">
+                        <button id="tab-art-btn" class="player-btn tab-btn active" data-tab="art">Art Drop</button>
+                        <button id="tab-blog-btn" class="player-btn tab-btn" data-tab="blog">Blog</button>
+                        <button id="tab-status-btn" class="player-btn tab-btn" data-tab="status">Status</button>
+                        <button id="tab-media-btn" class="player-btn tab-btn" data-tab="media">Media</button>
+                    </div>
+
+                    <div class="admin-body" style="padding: 0 14px 14px;">
+                        <!-- ART TAB -->
+                        <div id="tab-art-content" class="tab-panel">
+                            <label for="art-file-input">Choose Image File:</label>
+                            <input type="file" id="art-file-input" class="admin-input" accept="image/*">
+
+                            <div class="art-preview-wrap">
+                                <img id="art-preview" class="art-preview-img" alt="Selected artwork preview">
+                            </div>
+
+                            <label for="art-filename">Save As Filename (in <code>assets/images/art/</code>):</label>
+                            <input type="text" id="art-filename" class="admin-input"
+                                placeholder="e.g. 2026-11-25_sketch.png">
+
+                            <label for="art-title">Artwork Title:</label>
+                            <input type="text" id="art-title" class="admin-input" placeholder="e.g. king dice">
+
+                            <label for="art-date">Date (optional — auto-fills if blank):</label>
+                            <input type="text" id="art-date" class="admin-input" placeholder="e.g. nov 25, 2026">
+
+                            <label for="art-desc">Description:</label>
+                            <textarea id="art-desc" class="admin-textarea" style="height: 65px;"
+                                placeholder="Optional context or notes..."></textarea>
+
+                            <label for="art-music">Listening To (optional):</label>
+                            <input type="text" id="art-music" class="admin-input" placeholder="e.g. DOGWALK">
+
+                            <label class="checkbox-row">
+                                <input type="checkbox" id="art-kofi">
+                                <span>Watermarked</span>
+                            </label>
+
+                            <button id="upload-art-btn" class="player-btn"
+                                style="width: 100%; padding: 9px; cursor: pointer;">Upload
+                                Image &amp; Push art.json</button>
+                            <div id="art-msg" style="margin-top: 8px; font-size: 12px; text-align: center;"></div>
+                        </div>
+
+                        <!-- BLOG TAB -->
+                        <div id="tab-blog-content" class="tab-panel" style="display: none;">
+                            <label for="post-title">Post Title:</label>
+                            <input type="text" id="post-title" class="admin-input" placeholder="What's on your mind?">
+
+                            <label for="post-content">Post Content (HTML allowed):</label>
+                            <textarea id="post-content" class="admin-textarea"
+                                placeholder="Type your blog post here..."></textarea>
+
+                            <button id="publish-btn" class="player-btn"
+                                style="width: 100%; padding: 9px; cursor: pointer;">Push
+                                Post to admin.json</button>
+                            <div id="blog-msg" style="margin-top: 8px; font-size: 12px; text-align: center;"></div>
+                        </div>
+
+                        <!-- STATUS TAB -->
+                        <div id="tab-status-content" class="tab-panel" style="display: none;">
+                            <label for="status-select">Site Status:</label>
+                            <select id="status-select" class="admin-select">
+                                <option value="ONLINE">● ONLINE</option>
+                                <option value="OFFLINE">● OFFLINE</option>
+                                <option value="EEPYSLEEP">● EEPY / AFK</option>
+                            </select>
+
+                            <button id="save-status-btn" class="player-btn"
+                                style="width: 100%; padding: 9px; cursor: pointer;">Push Status to
+                                admin.json</button>
+                            <div id="status-msg" style="margin-top: 8px; font-size: 12px; text-align: center;">
+                            </div>
+                        </div>
+
+                        <!-- MEDIA TAB -->
+                        <div id="tab-media-content" class="tab-panel" style="display: none;">
+                            <label for="media-playing">Currently Playing:</label>
+                            <input type="text" id="media-playing" class="admin-input" placeholder="e.g. Minecraft">
+
+                            <label for="media-watching">Currently Watching:</label>
+                            <input type="text" id="media-watching" class="admin-input" placeholder="e.g. Dandadan">
+
+                            <label for="media-reading">Currently Reading / Listening:</label>
+                            <input type="text" id="media-reading" class="admin-input"
+                                placeholder="e.g. A Short Quiz">
+
+                            <button id="save-media-btn" class="player-btn"
+                                style="width: 100%; padding: 9px; cursor: pointer;">Push Media to
+                                admin.json</button>
+                            <div id="media-msg" style="margin-top: 8px; font-size: 12px; text-align: center;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+            const TOKEN_STORAGE_KEY = "sugar_gh_token";
+            const GH_OWNER = "SugarHyperdose";
+            const GH_REPO = "sugarhyperdose";
+            const GH_BRANCH = "main";
+            const ART_DIR = "assets/images/art";
+            const ART_JSON_PATH = "art.json";
+            const ADMIN_JSON_PATH = "admin.json";
+
+            let selectedFile = null;
+            let adminData = {
+                onlineStatus: "OFFLINE",
+                currentlyPlaying: "Pokemon GO",
+                currentlyWatching: "H2O Delirious",
+                currentlyReading: "The Bean Trees",
+                posts: []
+            };
+
+            function getSavedToken() {
+                return (localStorage.getItem(TOKEN_STORAGE_KEY) || "").trim();
+            }
+
+            function ensureUploadToken() {
+                const existing = getSavedToken();
+                if (existing) return existing;
+
+                const entered = window.prompt("Nuh uh, what's the magic word?");
+                if (!entered || !entered.trim()) return "";
+
+                const clean = entered.trim();
+                localStorage.setItem(TOKEN_STORAGE_KEY, clean);
+                return clean;
+            }
+
+            function formatShortDate() {
+                const now = new Date();
+                const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+                const mon = months[now.getMonth()];
+                const day = String(now.getDate()).padStart(2, "0");
+                return `${mon} ${day}, ${now.getFullYear()}`;
+            }
+
+            function formatNow() {
+                const now = new Date();
+                const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                const mon = months[now.getMonth()];
+                const day = now.getDate();
+                let hours = now.getHours();
+                const mins = String(now.getMinutes()).padStart(2, "0");
+                const ampm = hours >= 12 ? "PM" : "AM";
+                hours = hours % 12 || 12;
+                return `${mon} ${day} – ${hours}:${mins} ${ampm}`;
+            }
+
+            function utf8ToBase64(str) {
+                const bytes = new TextEncoder().encode(str);
+                let bin = "";
+                bytes.forEach((b) => { bin += String.fromCharCode(b); });
+                return btoa(bin);
+            }
+
+            function base64ToUtf8(b64) {
+                const clean = b64.replace(/\n/g, "");
+                const bin = atob(clean);
+                const bytes = new Uint8Array(bin.length);
+                for (let i = 0; i < bin.length; i++) {
+                    bytes[i] = bin.charCodeAt(i);
+                }
+                return new TextDecoder().decode(bytes);
+            }
+
+            function fileToBase64(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        const result = String(reader.result || "");
+                        const base64 = result.split(",")[1] || "";
+                        resolve(base64);
+                    };
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            async function ghGetFile(path, token) {
+                const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${encodeURIComponent(path)}?ref=${GH_BRANCH}`;
+                const headers = { "Accept": "application/vnd.github+json" };
+                if (token) headers["Authorization"] = `Bearer ${token}`;
+                const res = await fetch(url, { headers });
+                if (res.status === 404) return null;
+                if (!res.ok) throw new Error(`GitHub GET failed (${res.status}) for ${path}`);
+                return res.json();
+            }
+
+            async function ghPutFile(path, base64Content, message, token, existingSha = null) {
+                const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${encodeURIComponent(path)}`;
+                const body = {
+                    message,
+                    content: base64Content,
+                    branch: GH_BRANCH
+                };
+                if (existingSha) body.sha = existingSha;
+
+                const res = await fetch(url, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Accept": "application/vnd.github+json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(body)
+                });
+                if (!res.ok) {
+                    const errText = await res.text();
+                    throw new Error(`GitHub PUT failed (${res.status}): ${errText}`);
+                }
+                return res.json();
+            }
+
+            function syncInputsFromData() {
+                document.getElementById("status-select").value = adminData.onlineStatus || "OFFLINE";
+                document.getElementById("media-playing").value = adminData.currentlyPlaying || "";
+                document.getElementById("media-watching").value = adminData.currentlyWatching || "";
+                document.getElementById("media-reading").value = adminData.currentlyReading || "";
+            }
+
+            async function loadAdminJsonIfAvailable() {
+                try {
+                    const res = await fetch(`${ADMIN_JSON_PATH}?t=${Date.now()}`);
+                    if (res.ok) {
+                        const parsed = await res.json();
+                        adminData = { ...adminData, ...parsed };
+                    }
+                } catch (_) { }
+                syncInputsFromData();
+            }
+
+            loadAdminJsonIfAvailable();
+
+            // Tabs
+            const tabButtons = document.querySelectorAll(".tab-btn");
+            const tabPanels = document.querySelectorAll(".tab-panel");
+            tabButtons.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    tabButtons.forEach((b) => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    const target = btn.dataset.tab;
+                    tabPanels.forEach((panel) => {
+                        panel.style.display = panel.id === `tab-${target}-content` ? "block" : "none";
+                    });
+                });
+            });
+
+            // Image file picker preview & default filename
+            const artFileInput = document.getElementById("art-file-input");
+            const artPreview = document.getElementById("art-preview");
+            const artFilenameInput = document.getElementById("art-filename");
+
+            artFileInput.addEventListener("change", () => {
+                const file = artFileInput.files && artFileInput.files[0];
+                selectedFile = file || null;
+                if (!selectedFile) {
+                    artPreview.style.display = "none";
+                    artPreview.removeAttribute("src");
+                    return;
+                }
+                artPreview.src = URL.createObjectURL(selectedFile);
+                artPreview.style.display = "block";
+                if (!artFilenameInput.value.trim()) {
+                    artFilenameInput.value = selectedFile.name;
+                }
+            });
+
+            // Upload image file + prepend entry to art.json on GitHub (prompts for token only on upload)
+            document.getElementById("upload-art-btn").addEventListener("click", async () => {
+                const msg = document.getElementById("art-msg");
+                if (!selectedFile) {
+                    msg.textContent = "Pick an image file first.";
+                    return;
+                }
+                const token = ensureUploadToken();
+                if (!token) {
+                    msg.textContent = "Cancelled — no magic word entered.";
+                    return;
+                }
+
+                const rawName = (artFilenameInput.value.trim() || selectedFile.name)
+                    .replace(/^\/?assets\/images\/art\//i, "");
+                const title = document.getElementById("art-title").value.trim();
+                const customDate = document.getElementById("art-date").value.trim();
+                const desc = document.getElementById("art-desc").value.trim();
+                const music = document.getElementById("art-music").value.trim();
+                const kofi = document.getElementById("art-kofi").checked;
+
+                try {
+                    msg.textContent = "Uploading image...";
+                    const imgBase64 = await fileToBase64(selectedFile);
+                    const imgRepoPath = `${ART_DIR}/${rawName}`;
+                    const existingImg = await ghGetFile(imgRepoPath, token);
+                    await ghPutFile(
+                        imgRepoPath,
+                        imgBase64,
+                        `Add artwork ${rawName}`,
+                        token,
+                        existingImg ? existingImg.sha : null
+                    );
+
+                    msg.textContent = "Updating art.json...";
+                    const existingArtJson = await ghGetFile(ART_JSON_PATH, token);
+                    let currentArt = [];
+                    let artSha = null;
+                    if (existingArtJson && existingArtJson.content) {
+                        artSha = existingArtJson.sha;
+                        const parsedArt = JSON.parse(base64ToUtf8(existingArtJson.content));
+                        if (Array.isArray(parsedArt)) currentArt = parsedArt;
+                    }
+
+                    const fallbackTitle = rawName
+                        .replace(/\.[^/.]+$/, "")
+                        .replace(/^\d{4}-\d{2}-\d{2}_/, "")
+                        .replace(/-/g, " ");
+
+                    currentArt.unshift({
+                        file: rawName,
+                        title: title || fallbackTitle,
+                        date: customDate || formatShortDate(),
+                        desc,
+                        music,
+                        kofi
+                    });
+
+                    await ghPutFile(
+                        ART_JSON_PATH,
+                        utf8ToBase64(JSON.stringify(currentArt, null, 2) + "\n"),
+                        `Update art.json with ${rawName}`,
+                        token,
+                        artSha
+                    );
+
+                    selectedFile = null;
+                    artFileInput.value = "";
+                    artFilenameInput.value = "";
+                    document.getElementById("art-title").value = "";
+                    document.getElementById("art-date").value = "";
+                    document.getElementById("art-desc").value = "";
+                    document.getElementById("art-music").value = "";
+                    document.getElementById("art-kofi").checked = false;
+                    artPreview.style.display = "none";
+                    artPreview.removeAttribute("src");
+
+                    msg.textContent = `Uploaded ${rawName} & updated art.json!`;
+                } catch (err) {
+                    if (String(err.message || "").includes("401")) {
+                        localStorage.removeItem(TOKEN_STORAGE_KEY);
+                        msg.textContent = "Bad magic word (401) — cleared from localStorage. Try uploading again.";
+                    } else {
+                        msg.textContent = err.message || "Upload failed.";
+                    }
+                }
+            });
+
+            async function pushAdminJson(commitMsg, statusTargetEl) {
+                const token = getSavedToken();
+                if (!token) {
+                    statusTargetEl.textContent = "No saved token in localStorage yet — upload an image first to set it.";
+                    return;
+                }
+                try {
+                    statusTargetEl.textContent = "Pushing admin.json...";
+                    const existing = await ghGetFile(ADMIN_JSON_PATH, token);
+                    await ghPutFile(
+                        ADMIN_JSON_PATH,
+                        utf8ToBase64(JSON.stringify(adminData, null, 2) + "\n"),
+                        commitMsg,
+                        token,
+                        existing ? existing.sha : null
+                    );
+                    statusTargetEl.textContent = "Updated admin.json!";
+                } catch (err) {
+                    if (String(err.message || "").includes("401")) {
+                        localStorage.removeItem(TOKEN_STORAGE_KEY);
+                        statusTargetEl.textContent = "Bad token (401) — cleared from localStorage.";
+                    } else {
+                        statusTargetEl.textContent = err.message || "Push failed.";
+                    }
+                }
+            }
+
+            // Blog Post
+            document.getElementById("publish-btn").addEventListener("click", async () => {
+                const title = document.getElementById("post-title").value.trim();
+                const content = document.getElementById("post-content").value.trim();
+                const msg = document.getElementById("blog-msg");
+                if (!title || !content) {
+                    msg.textContent = "Add both a title and content.";
+                    return;
+                }
+                adminData.posts.unshift({ title, date: formatNow(), content });
+                await pushAdminJson(`Add blog post: ${title}`, msg);
+                document.getElementById("post-title").value = "";
+                document.getElementById("post-content").value = "";
+            });
+
+            // Status
+            document.getElementById("save-status-btn").addEventListener("click", async () => {
+                const msg = document.getElementById("status-msg");
+                adminData.onlineStatus = document.getElementById("status-select").value;
+                await pushAdminJson(`Update site status to ${adminData.onlineStatus}`, msg);
+            });
+
+            // Media
+            document.getElementById("save-media-btn").addEventListener("click", async () => {
+                const msg = document.getElementById("media-msg");
+                adminData.currentlyPlaying = document.getElementById("media-playing").value.trim();
+                adminData.currentlyWatching = document.getElementById("media-watching").value.trim();
+                adminData.currentlyReading = document.getElementById("media-reading").value.trim();
+                await pushAdminJson("Update current media in admin.json", msg);
+            });
+        </script>
+    </div>
+</body>
+
+</html>

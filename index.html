@@ -43,25 +43,25 @@
           <div id="threeway" class="container-content">
             <!-- LEFT COLUMN (Unchanged) -->
             <div style="position: relative; flex: 1; height: fit-content;" class="flex column align-center">
-              <img src="/assets/images/not-mine/stamps/ballpit.gif"
+              <img src="assets/images/not-mine/stamps/ballpit.gif"
                 style="position: absolute; left: 10px; top: 0; height: 40px;">
-              <img src="/assets/images/not-mine/stamps/clowncore.png"
+              <img src="assets/images/not-mine/stamps/clowncore.png"
                 style="position: absolute; left: 8px; top: 50px; height: 40px;">
-              <img src="/assets/images/not-mine/stamps/clowncore2.png"
+              <img src="assets/images/not-mine/stamps/clowncore2.png"
                 style="position: absolute; left: 8px; top: 100px; height: 40px;">
-              <img src="/assets/images/not-mine/stamps/gummyworms.png"
+              <img src="assets/images/not-mine/stamps/gummyworms.png"
                 style="position: absolute; left: 85px; top: 0; height: 40px;">
-              <img src="/assets/images/art/2026-11-08_sugar.png" width="180" style="z-index: 1; margin-left: 40px;">
-              <img src="/assets/images/not-mine/buttons/freewareguide.gif"
+              <img src="assets/images/art/2026-11-08_sugar.png" width="180" style="z-index: 1; margin-left: 40px;">
+              <img src="assets/images/not-mine/buttons/freewareguide.gif"
                 style="z-index: 2; position: absolute; right: 15px; bottom: 110px; height: 25px;">
               <img
-                src="/assets/images/not-mine/stamps/twinbee_rainbow_bell_adventure_logo_japan__by_ringostarr39_d6t1rvk-414w-2x.png"
+                src="assets/images/not-mine/stamps/twinbee_rainbow_bell_adventure_logo_japan__by_ringostarr39_d6t1rvk-414w-2x.png"
                 style="z-index: 2; position: absolute; right: 0; bottom: -36px; height: 100px;">
             </div>
 
             <!-- RIGHT COLUMN -->
             <div class="flex column align-center" style="flex: 2; padding-right: 7px;">
-              <img src="/assets/images/art/2026-11-19_sugarhyperdose-sweet-party.png" style="margin: -20px 0;">
+              <img src="assets/images/art/2026-11-19_sugarhyperdose-sweet-party.png" style="margin: -20px 0;">
               <blockquote style="max-width: 400px;">
                 <h3 style="text-align: justify;">
                   <span style="color: #ff0077; font-size: 2rem;">“</span>My guiding philosophy is <span
@@ -75,19 +75,19 @@
               <div class="flex">
                 <ul class="mini-list">
                   <li>
-                    <img class="thumb" src="/assets/images/not-mine/picmix.com_2781239.gif" alt="">
+                    <img class="thumb" src="assets/images/not-mine/picmix.com_2781239.gif" alt="">
                     <span><strong>craving:</strong> ice cream</span>
                   </li>
                   <li>
-                    <img class="thumb" src="/assets/images/not-mine/picmix.com_2671306.gif" alt="">
+                    <img class="thumb" src="assets/images/not-mine/picmix.com_2671306.gif" alt="">
                     <span><strong>listening to:</strong> nerdcore</span>
                   </li>
                   <li>
-                    <img class="thumb" src="/assets/images/not-mine/picmix.com_2747896.gif" alt="">
+                    <img class="thumb" src="assets/images/not-mine/picmix.com_2747896.gif" alt="">
                     <span><strong>reading:</strong> the bean trees</span>
                   </li>
                   <li>
-                    <img class="thumb" src="/assets/images/not-mine/picmix.com_2428074.gif" alt="">
+                    <img class="thumb" src="assets/images/not-mine/picmix.com_2428074.gif" alt="">
                     <span><strong>watching:</strong> h2o delirious</span>
                   </li>
                 </ul>
@@ -107,7 +107,8 @@
                 <a href="#shop" class="update-card box-blue">
                   <span class="card-tag">SHOP</span>
                   <img src="" alt=""
-                    style="width: 90px; height: 90px; object-fit: cover; align-self: center;">
+                    style="width: 80px;
+  height: 80px; object-fit: cover; align-self: center;">
                 </a>
 
                 <a href="#diary" id="newest-diary-card" class="update-card box-green">
@@ -297,7 +298,7 @@
       const parsed = parseFilename(latest.file);
       const title = latest.title || parsed.title;
 
-      newestArtImg.src = `/assets/images/art/${latest.file}`;
+      newestArtImg.src = `assets/images/art/${latest.file}`;
       newestArtImg.alt = title;
       if (newestArtTitle) newestArtTitle.textContent = title;
     }
@@ -310,7 +311,7 @@
       const item = artData[currentIndex];
       const parsed = parseFilename(item.file);
 
-      lbImg.src = `/assets/images/art/${item.file}`;
+      lbImg.src = `assets/images/art/${item.file}`;
       lbTitle.textContent = item.title || parsed.title;
       lbDate.textContent = item.date || parsed.date;
       lbDesc.textContent = item.desc || '';
@@ -335,7 +336,7 @@
         card.className = 'art-item';
 
         const img = document.createElement('img');
-        img.src = `/assets/images/art/${item.file}`;
+        img.src = `assets/images/art/${item.file}`;
         img.alt = title;
 
         const span = document.createElement('span');
@@ -348,14 +349,6 @@
         artGrid.appendChild(card);
       });
     }
-
-    fetch('art.json')
-      .then(res => res.json())
-      .then(data => {
-        artData = Array.isArray(data) ? data : [];
-        renderArtGrid();
-      })
-      .catch(err => console.error('Failed to load art.json:', err));
 
     document.getElementById('lb-prev').addEventListener('click', () => openLightbox(currentIndex - 1));
     document.getElementById('lb-next').addEventListener('click', () => openLightbox(currentIndex + 1));
@@ -372,24 +365,49 @@
       if (e.key === 'ArrowRight') openLightbox(currentIndex + 1);
     });
 
+    function updateNewestShopCard(items) {
+  const newestShopCard = document.querySelector('.newest-grid .box-blue');
+  if (!newestShopCard || !Array.isArray(items) || !items.length) return;
+
+  const latest = items[0];
+  let imgEl = newestShopCard.querySelector('img');
+  if (!imgEl) {
+    imgEl = document.createElement('img');
+    imgEl.style.cssText = 'width: 90px; height: 90px; object-fit: cover; align-self: center;';
+    newestShopCard.appendChild(imgEl);
+  }
+
+  imgEl.src = latest.img || '';
+  imgEl.alt = latest.name || 'Newest shop item';
+
+  let titleEl = newestShopCard.querySelector('.card-title');
+  if (!titleEl) {
+    titleEl = document.createElement('div');
+    titleEl.className = 'card-title';
+    titleEl.style.cssText = 'font-size: 12px; margin-top: 4px;';
+    newestShopCard.appendChild(titleEl);
+  }
+  titleEl.textContent = latest.name || '';
+}
+
     // ==================== RAINBOW JUKEBOX PLAYER ====================
     const tracks = [
-      { title: "Attack of the Killer Queen", src: "/assets/audio/music/Attack of the Killer Queen.mp3" },
-      { title: "Circus", src: "/assets/audio/music/Circus.mp3" },
-      { title: "DOGWALK", src: "/assets/audio/music/DOGWALK.mp3" },
-      { title: "Evil Clown Music", src: "/assets/audio/music/Evil Clown Music.mp3" },
-      { title: "The Ringleader (Fizzarolli's Show)", src: "/assets/audio/music/The Ringleader (Fizzarolli's Show).mp3" },
-      { title: "glitter ✩‧₊˚", src: "/assets/audio/music/glitter ✩‧₊˚.mp3" },
-      { title: "Go Kitty Go !", src: "/assets/audio/music/Go Kitty Go !.mp3" },
-      { title: "INTERNET ANGEL", src: "/assets/audio/music/INTERNET ANGEL.mp3" },
-      { title: "JACKIE'S BOX", src: "/assets/audio/music/JACKIE'S BOX.mp3" },
-      { title: "jax toy but its an actual (clean) song", src: "/assets/audio/music/jax toy but its an actual (clean) song.mp3" },
-      { title: "Let's Go Gambling!", src: "/assets/audio/music/Let's Go Gambling!.mp3" },
-      { title: "Paparazzi Murder Party", src: "/assets/audio/music/Paparazzi Murder Party.mp3" },
-      { title: "Peanut or Done？", src: "/assets/audio/music/Peanut or Done？.mp3" },
-      { title: "Static ft. Hatsune Miku", src: "/assets/audio/music/Static ft. Hatsune Miku.mp3" },
-      { title: "Still My Call, Fools", src: "/assets/audio/music/Still My Call, Fools.mp3" },
-      { title: "you are an idiot!", src: "/assets/audio/music/you are an idiot!.mp3" },
+      { title: "Attack of the Killer Queen", src: "assets/audio/music/Attack of the Killer Queen.mp3" },
+      { title: "Circus", src: "assets/audio/music/Circus.mp3" },
+      { title: "DOGWALK", src: "assets/audio/music/DOGWALK.mp3" },
+      { title: "Evil Clown Music", src: "assets/audio/music/Evil Clown Music.mp3" },
+      { title: "The Ringleader (Fizzarolli's Show)", src: "assets/audio/music/The Ringleader (Fizzarolli's Show).mp3" },
+      { title: "glitter ✩‧₊˚", src: "assets/audio/music/glitter ✩‧₊˚.mp3" },
+      { title: "Go Kitty Go !", src: "assets/audio/music/Go Kitty Go !.mp3" },
+      { title: "INTERNET ANGEL", src: "assets/audio/music/INTERNET ANGEL.mp3" },
+      { title: "JACKIE'S BOX", src: "assets/audio/music/JACKIE'S BOX.mp3" },
+      { title: "jax toy but its an actual (clean) song", src: "assets/audio/music/jax toy but its an actual (clean) song.mp3" },
+      { title: "Let's Go Gambling!", src: "assets/audio/music/Let's Go Gambling!.mp3" },
+      { title: "Paparazzi Murder Party", src: "assets/audio/music/Paparazzi Murder Party.mp3" },
+      { title: "Peanut or Done？", src: "assets/audio/music/Peanut or Done？.mp3" },
+      { title: "Static ft. Hatsune Miku", src: "assets/audio/music/Static ft. Hatsune Miku.mp3" },
+      { title: "Still My Call, Fools", src: "assets/audio/music/Still My Call, Fools.mp3" },
+      { title: "you are an idiot!", src: "assets/audio/music/you are an idiot!.mp3" },
     ];
 
     const audio = document.getElementById('mp-audio');
@@ -579,14 +597,6 @@
       });
     }
 
-    fetch('diary.json')
-      .then(res => res.json())
-      .then(data => {
-        const entries = Array.isArray(data) ? data : [];
-        renderDiaryBoard(entries);
-      })
-      .catch(err => console.error('Failed to load diary.json:', err));
-
     document.getElementById('dm-close').addEventListener('click', () => {
       diaryModal.classList.remove('open');
     });
@@ -654,16 +664,37 @@
       });
     });
 
-    fetch('shop.json')
-      .then(res => (res.ok ? res.json() : []))
-      .then(data => {
-        shopData = Array.isArray(data) ? data : [];
-        renderShopGrid();
-      })
-      .catch(err => {
-        console.error('Failed to load shop.json:', err);
-        renderShopGrid();
-      });
+    const cacheBust = `?t=${Date.now()}`;
+
+fetch(`art.json${cacheBust}`)
+  .then(res => res.json())
+  .then(data => {
+    artData = Array.isArray(data) ? data : [];
+    updateNewestArtCard();
+    renderArtGrid();
+  })
+  .catch(err => console.error('Failed to load art.json:', err));
+
+fetch(`diary.json${cacheBust}`)
+  .then(res => res.json())
+  .then(data => {
+    const entries = Array.isArray(data) ? data : [];
+    updateNewestDiaryCard(entries);
+    renderDiaryBoard(entries);
+  })
+  .catch(err => console.error('Failed to load diary.json:', err));
+
+fetch(`shop.json${cacheBust}`)
+  .then(res => (res.ok ? res.json() : []))
+  .then(data => {
+    shopData = Array.isArray(data) ? data : [];
+    updateNewestShopCard(shopData);
+    renderShopGrid();
+  })
+  .catch(err => {
+    console.error('Failed to load shop.json:', err);
+    renderShopGrid();
+  });
   </script>
 </body>
 
