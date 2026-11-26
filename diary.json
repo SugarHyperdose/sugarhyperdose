@@ -1,5 +1,14 @@
 [
   {
+    "type": "ramble",
+    "title": "test",
+    "date": "nov 26, 2026",
+    "preview": "testest",
+    "body": [
+      "testestest"
+    ]
+  },
+  {
     "type": "update",
     "title": "NEW WEBSITE IS LIVE!!",
     "date": "nov 22, 2026",
