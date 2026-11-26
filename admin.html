@@ -16,13 +16,11 @@
         .admin-select {
             width: 100%;
             font-family: inherit;
-            margin-top: 4px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             padding: 8px;
-            border: 2px inset var(--purple);
+            border: 2px inset var(--blue);
             color: inherit;
-            background: rgba(255, 255, 255, 0.92);
-            box-sizing: border-box;
+            background: rgb(239, 239, 239);
         }
 
         .admin-textarea {
@@ -34,21 +32,20 @@
             flex: 1;
             padding: 7px 6px;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 12px;
+            font-family: 'Circus';
+            font-size: x-large;
         }
 
         .tab-btn.active {
-            background: var(--purple);
+            background: var(--blue);
             color: #fff;
         }
 
         .checkbox-row {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
             margin-bottom: 12px;
-            font-size: 13px;
         }
 
         .art-preview-wrap {
@@ -60,9 +57,9 @@
             max-width: 100%;
             max-height: 150px;
             object-fit: contain;
-            border: 2px inset var(--purple);
+            border: 2px inset var(--blue);
             display: none;
-            margin: 6px auto 0;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -70,18 +67,17 @@
 <body class="flex justify-center">
     <div id="web-container" class="flex justify-center align-center">
         <div id="web-container-content" class="container-content">
-            <div id="scroll-area">
+            <div id="scroll-area" style="padding: 10px;">
 
                 <!-- Main Admin Window -->
                 <div id="admin-console" class="admin-window window">
-                    <div class="admin-tabs flex" style="margin-bottom: 12px; gap: 5px; padding: 6px;">
+                    <div class="admin-tabs flex" style="margin-bottom: 10px; gap: 10px; padding: 5px;">
                         <button id="tab-art-btn" class="player-btn tab-btn active" data-tab="art">Art Drop</button>
-                        <button id="tab-blog-btn" class="player-btn tab-btn" data-tab="blog">Blog</button>
-                        <button id="tab-status-btn" class="player-btn tab-btn" data-tab="status">Status</button>
+                        <button id="tab-diary-btn" class="player-btn tab-btn" data-tab="diary">diary</button>
                         <button id="tab-media-btn" class="player-btn tab-btn" data-tab="media">Media</button>
                     </div>
 
-                    <div class="admin-body" style="padding: 0 14px 14px;">
+                    <div class="admin-body">
                         <!-- ART TAB -->
                         <div id="tab-art-content" class="tab-panel">
                             <label for="art-file-input">Choose Image File:</label>
@@ -102,7 +98,7 @@
                             <input type="text" id="art-date" class="admin-input" placeholder="e.g. nov 25, 2026">
 
                             <label for="art-desc">Description:</label>
-                            <textarea id="art-desc" class="admin-textarea" style="height: 65px;"
+                            <textarea id="art-desc" class="admin-textarea"
                                 placeholder="Optional context or notes..."></textarea>
 
                             <label for="art-music">Listening To (optional):</label>
@@ -116,38 +112,34 @@
                             <button id="upload-art-btn" class="player-btn"
                                 style="width: 100%; padding: 9px; cursor: pointer;">Upload
                                 Image &amp; Push art.json</button>
-                            <div id="art-msg" style="margin-top: 8px; font-size: 12px; text-align: center;"></div>
+                            <div id="art-msg" style="margin-top: 10px; text-align: center;"></div>
                         </div>
 
-                        <!-- BLOG TAB -->
-                        <div id="tab-blog-content" class="tab-panel" style="display: none;">
+                        <!-- diary TAB -->
+                        <div id="tab-diary-content" class="tab-panel" style="display: none;">
+                            <label for="diary-type">Entry Type:</label>
+                            <select id="diary-type" class="admin-select">
+                                <option value="update">update</option>
+                                <option value="ramble">ramble</option>
+                                <option value="vent">vent</option>
+                                <option value="latenight">latenight</option>
+                            </select>
+
                             <label for="post-title">Post Title:</label>
                             <input type="text" id="post-title" class="admin-input" placeholder="What's on your mind?">
 
-                            <label for="post-content">Post Content (HTML allowed):</label>
+                            <label for="diary-preview">Preview (optional):</label>
+                            <input type="text" id="diary-preview" class="admin-input"
+                                placeholder="Short teaser for the ticket stub...">
+
+                            <label for="post-content">Post Content (blank line = new paragraph):</label>
                             <textarea id="post-content" class="admin-textarea"
-                                placeholder="Type your blog post here..."></textarea>
+                                placeholder="Type your diary post here..."></textarea>
 
                             <button id="publish-btn" class="player-btn"
                                 style="width: 100%; padding: 9px; cursor: pointer;">Push
-                                Post to admin.json</button>
-                            <div id="blog-msg" style="margin-top: 8px; font-size: 12px; text-align: center;"></div>
-                        </div>
-
-                        <!-- STATUS TAB -->
-                        <div id="tab-status-content" class="tab-panel" style="display: none;">
-                            <label for="status-select">Site Status:</label>
-                            <select id="status-select" class="admin-select">
-                                <option value="ONLINE">● ONLINE</option>
-                                <option value="OFFLINE">● OFFLINE</option>
-                                <option value="EEPYSLEEP">● EEPY / AFK</option>
-                            </select>
-
-                            <button id="save-status-btn" class="player-btn"
-                                style="width: 100%; padding: 9px; cursor: pointer;">Push Status to
-                                admin.json</button>
-                            <div id="status-msg" style="margin-top: 8px; font-size: 12px; text-align: center;">
-                            </div>
+                                Post to diary.json</button>
+                            <div id="diary-msg" style="margin-top: 10px; text-align: center;"></div>
                         </div>
 
                         <!-- MEDIA TAB -->
@@ -180,11 +172,11 @@
             const GH_BRANCH = "main";
             const ART_DIR = "assets/images/art";
             const ART_JSON_PATH = "art.json";
+            const DIARY_JSON_PATH = "diary.json";
             const ADMIN_JSON_PATH = "admin.json";
 
             let selectedFile = null;
             let adminData = {
-                onlineStatus: "OFFLINE",
                 currentlyPlaying: "Pokemon GO",
                 currentlyWatching: "H2O Delirious",
                 currentlyReading: "The Bean Trees",
@@ -213,18 +205,6 @@
                 const mon = months[now.getMonth()];
                 const day = String(now.getDate()).padStart(2, "0");
                 return `${mon} ${day}, ${now.getFullYear()}`;
-            }
-
-            function formatNow() {
-                const now = new Date();
-                const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                const mon = months[now.getMonth()];
-                const day = now.getDate();
-                let hours = now.getHours();
-                const mins = String(now.getMinutes()).padStart(2, "0");
-                const ampm = hours >= 12 ? "PM" : "AM";
-                hours = hours % 12 || 12;
-                return `${mon} ${day} – ${hours}:${mins} ${ampm}`;
             }
 
             function utf8ToBase64(str) {
@@ -293,7 +273,6 @@
             }
 
             function syncInputsFromData() {
-                document.getElementById("status-select").value = adminData.onlineStatus || "OFFLINE";
                 document.getElementById("media-playing").value = adminData.currentlyPlaying || "";
                 document.getElementById("media-watching").value = adminData.currentlyWatching || "";
                 document.getElementById("media-reading").value = adminData.currentlyReading || "";
@@ -434,6 +413,72 @@
                 }
             });
 
+            // diary Post -> pushes to diary.json
+            document.getElementById("publish-btn").addEventListener("click", async () => {
+                const type = document.getElementById("diary-type").value;
+                const title = document.getElementById("post-title").value.trim();
+                const rawContent = document.getElementById("post-content").value.trim();
+                const customPreview = document.getElementById("diary-preview").value.trim();
+                const msg = document.getElementById("diary-msg");
+
+                if (!title || !rawContent) {
+                    msg.textContent = "Add both a title and content.";
+                    return;
+                }
+
+                const token = getSavedToken();
+                if (!token) {
+                    msg.textContent = "No saved token in localStorage yet — upload an image first to set it.";
+                    return;
+                }
+
+                try {
+                    msg.textContent = "Updating diary.json...";
+                    const existingDiary = await ghGetFile(DIARY_JSON_PATH, token);
+                    let currentEntries = [];
+                    let diarySha = null;
+
+                    if (existingDiary && existingDiary.content) {
+                        diarySha = existingDiary.sha;
+                        const parsed = JSON.parse(base64ToUtf8(existingDiary.content));
+                        if (Array.isArray(parsed)) currentEntries = parsed;
+                    }
+
+                    const paragraphs = rawContent
+                        .split(/\n\s*\n/)
+                        .map(p => p.trim())
+                        .filter(Boolean);
+
+                    currentEntries.unshift({
+                        type,
+                        title,
+                        date: formatShortDate(),
+                        preview: customPreview,
+                        body: paragraphs.length ? paragraphs : [rawContent]
+                    });
+
+                    await ghPutFile(
+                        DIARY_JSON_PATH,
+                        utf8ToBase64(JSON.stringify(currentEntries, null, 2) + "\n"),
+                        `Add diary entry: ${title}`,
+                        token,
+                        diarySha
+                    );
+
+                    document.getElementById("post-title").value = "";
+                    document.getElementById("post-content").value = "";
+                    document.getElementById("diary-preview").value = "";
+                    msg.textContent = "Published to diary.json!";
+                } catch (err) {
+                    if (String(err.message || "").includes("401")) {
+                        localStorage.removeItem(TOKEN_STORAGE_KEY);
+                        msg.textContent = "Bad token (401) — cleared from localStorage.";
+                    } else {
+                        msg.textContent = err.message || "Diary push failed.";
+                    }
+                }
+            });
+
             async function pushAdminJson(commitMsg, statusTargetEl) {
                 const token = getSavedToken();
                 if (!token) {
@@ -460,28 +505,6 @@
                     }
                 }
             }
-
-            // Blog Post
-            document.getElementById("publish-btn").addEventListener("click", async () => {
-                const title = document.getElementById("post-title").value.trim();
-                const content = document.getElementById("post-content").value.trim();
-                const msg = document.getElementById("blog-msg");
-                if (!title || !content) {
-                    msg.textContent = "Add both a title and content.";
-                    return;
-                }
-                adminData.posts.unshift({ title, date: formatNow(), content });
-                await pushAdminJson(`Add blog post: ${title}`, msg);
-                document.getElementById("post-title").value = "";
-                document.getElementById("post-content").value = "";
-            });
-
-            // Status
-            document.getElementById("save-status-btn").addEventListener("click", async () => {
-                const msg = document.getElementById("status-msg");
-                adminData.onlineStatus = document.getElementById("status-select").value;
-                await pushAdminJson(`Update site status to ${adminData.onlineStatus}`, msg);
-            });
 
             // Media
             document.getElementById("save-media-btn").addEventListener("click", async () => {
