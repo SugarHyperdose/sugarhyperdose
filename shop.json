@@ -1,5 +1,4 @@
 [
-    
   {
     "id": "sugar-button",
     "name": "sugar Button",
@@ -179,5 +178,15 @@
     "img": "/assets/images/product-preview/buttons/spinel-original.png",
     "desc": "Glossy button pin!",
     "url": "https://ko-fi.com/sugarhyperdose/shop"
+  },
+  {
+    "id": "pomni-poster",
+    "name": "pomni poster",
+    "category": "posters",
+    "table": "",
+    "price": "$15",
+    "img": "/assets/images/product-preview/posters/pomni.webp",
+    "desc": "wip!",
+    "url": ""
   }
 ]

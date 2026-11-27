@@ -500,8 +500,8 @@ nav a.active-tab {
 }
 
 #lb-img {
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 385px;
+    max-height: 385px;
     max-width: calc(100% - 80px);
     object-fit: contain;
     margin: 0 auto;
