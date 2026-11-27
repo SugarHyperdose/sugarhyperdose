@@ -16,6 +16,14 @@
     "kofi": false
   },
   {
+    "file": "2026-11-23_sugarhyperdose.png",
+    "title": "sugarhyperdose",
+    "date": "nov 23, 2026",
+    "desc": "",
+    "music": "",
+    "kofi": false
+  },
+  {
     "file": "2026-11-23_king-dice.png",
     "title": "king dice",
     "date": "nov 23, 2026",
@@ -24,10 +32,26 @@
     "kofi": true
   },
   {
+    "file": "2026-11-19_sugarhyperdose-sweet-party.png",
+    "title": "sugarhyperdose sweet party",
+    "date": "nov 19, 2026",
+    "desc": "",
+    "music": "",
+    "kofi": false
+  },
+  {
     "file": "2026-11-17_sugar.png",
     "title": "sugar",
     "date": "nov 17, 2026",
     "desc": "drawn at 2am after eating way too much ice cream",
+    "music": "",
+    "kofi": false
+  },
+  {
+    "file": "2026-11-15_tricky.png",
+    "title": "tricky",
+    "date": "nov 15, 2026",
+    "desc": "",
     "music": "",
     "kofi": false
   },
@@ -46,6 +70,14 @@
     "desc": "",
     "music": "",
     "kofi": true
+  },
+  {
+    "file": "2026-11-15_spinel-2.png",
+    "title": "spinel #2",
+    "date": "nov 15, 2026",
+    "desc": "",
+    "music": "",
+    "kofi": false
   },
   {
     "file": "2026-11-15_puppet.png",
@@ -226,14 +258,6 @@
   {
     "file": "Untitled183_20261117024330.png",
     "title": "20261117024330",
-    "date": "",
-    "desc": "",
-    "music": "",
-    "kofi": false
-  },
-  {
-    "file": "sugarhyperdose-sweet-party.png",
-    "title": "sugarhyperdose sweet party",
     "date": "",
     "desc": "",
     "music": "",
