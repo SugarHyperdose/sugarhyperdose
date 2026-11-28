@@ -186,7 +186,17 @@
     "table": "",
     "price": "$15-$25",
     "img": "/assets/images/product-preview/posters/pomni.png",
-    "desc": "wip!",
+    "desc": "A 8.5\"x11\" Poster of Pomni!",
     "url": "https://ko-fi.com/s/6bfb078f6e"
+  },
+  {
+    "id": "pomni-poster-digital",
+    "name": "pomni poster (digital)",
+    "category": "digital-art",
+    "table": "",
+    "price": "$7.50",
+    "img": "/assets/images/art/2026-11-26_pomni.png",
+    "desc": "A ready-to-use PNG!",
+    "url": "https://ko-fi.com/s/533f86f921"
   }
 ]
